@@ -11,13 +11,26 @@ namespace Lab2_cifrado
     {
         static void Main(string[] args)
         {
-             
+            
             Console.WriteLine("Inicia el programa: \nEl comando -c se utiliza para cifrar un archivo y -d para descifrarlo. \ne.g: -c -f (entre comillas)ruta del archivo");
 
             string LeerLinea = Console.ReadLine();
 
 
             operacion(LeerLinea);
+
+            Console.WriteLine("Si desea ejecutar otra operación escriba 'de nuevo', de lo contrario presione cualquier letra");
+
+            string denuevo = Console.ReadLine();
+
+            if (denuevo == "de nuevo")
+            {
+                operacion(Console.ReadLine());
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
 
 
 

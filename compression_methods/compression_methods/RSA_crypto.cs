@@ -23,7 +23,7 @@ namespace compression_methods
 
         public string CifrarRSA(byte[] cadena)
         {
-            byte[] nuevacadena = null;
+            byte[] nuevacadena = new byte[cadena.Length];
 
             for (int i = 1; i < cadena.Length; i++)
             {
@@ -31,20 +31,20 @@ namespace compression_methods
                 nuevacadena[i] = Convert.ToByte((Convert.ToInt32(cadena[i]) ^ llavepublica) % n);
             }
 
-            string r = Encoding.UTF8.GetString(nuevacadena);
+            string r = Encoding.ASCII.GetString(nuevacadena);
             return r;
         }
 
         public string DescifrarRSA(byte[] cadena)
         {
-            byte[] nuevacadena = null;
+            byte[] nuevacadena = new byte[cadena.Length];
 
             for (int i = 0; i < cadena.Length; i++)
             {
                 nuevacadena[i] = Convert.ToByte((Convert.ToInt32(cadena[i]) ^ llaveprivada) % n);
             }
 
-            string r = Encoding.UTF8.GetString(nuevacadena);
+            string r = Encoding.ASCII.GetString(nuevacadena);
             return r;
 
         }
